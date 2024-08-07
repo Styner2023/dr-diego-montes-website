@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR. DIEGO MONTES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            position: relative;
+        }
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #333;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+        .logo:hover::after, .logo:focus::after, .logo.active::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #777;
+            font-size: 20px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        nav a:hover, nav a:focus, nav a.active {
+            color: #333;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #333;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+        nav a:hover::after, nav a:focus::after, nav a.active::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .large-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .medium-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .small-text {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .cta {
+            background-image: url('images/chiropractic-office-background.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 50px 0;
+            text-align: center;
+            color: white;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .cta .container {
+            position: relative;
+            z-index: 1;
+        }
+        .cta h2, .cta p {
+            color: white;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+        .contact-form button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .instagram-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .instagram-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .instagram-grid img {
+            width: 23%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: white;
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+            nav.open {
+                display: flex;
+            }
+            nav a {
+                color: #333;
+            }
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+            }
+            .instagram-grid img {
+                width: 48%;
+            }
+        }
+        @media (min-width: 769px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="#" class="logo">DR. DIEGO MONTES</a>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#coaching">Coaching</a>
+                <a href="#speaking">Speaking</a>
+                <a href="#podcast">Podcast</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>DR. DIEGO MONTES, DC</h1>
+                <h2>DOCTOR OF CHIROPRACTIC</h2>
+                <p class="large-text">Dr. Diego Montes, D.C. has been serving as a chiropractor for years. His personal mission is to provide nurturing care that helps people heal naturally without the use of drugs or surgery.</p>
+                <p class="medium-text">Dr. Montes's journey towards true health and chiropractic began in 2014. His life was turned upside down when his mom was diagnosed with brain cancer in 2014. After losing his mom in 2019 and graduating from San Jose State University he decided to become a chiropractor because of its emphasis on the body healing naturally with the power of the nervous system.</p>
+                <p class="small-text">Dr. Montes attended Life Chiropractic College West and graduated Summa Cum Laude with the Clinic Excellence Award. During his time at school, he was involved in many clubs and organizations. He was President of the Student Council Body, Treasurer of Delta Sigma Chi Nu Chapter, Community Relations of the Student Ambassadors, and a member of the Knee Chest Club.</p>
+                <p class="small-text">Dr. Montes has extensive experience in chiropractic and is a specialist in upper cervical care. He has served thousands of patients and is well versed in adjusting the whole spine and extremities. In addition to serving as a chiropractor, Dr. Montes is also a certified Life Coach and Foundation Training Instructor. Both roles make him a better chiropractor.</p>
+                <p class="small-text">Nowadays you can find Dr. Montes spending time with his family and soon-to-be wife. He constantly practices what he preaches with his "5 Pillars of Health" consisting of chiropractic, exercise, sleep, nutrition, and mindset. He enjoys getting chiropractic adjustments, going to the gym, sleeping in when possible, eating meat, and being incredibly positive.</p>
+            </div>
+            <div class="hero-image">
+                <img src="images/Dr. Diego Montes.png" alt="Dr. Diego Montes">
+            </div>
+        </section>
+    </div>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Don't Wait Any Longer.</h2>
+            <p>Contact Dr. Diego Today.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="instagram-section">
+        <div class="container">
+            <h2>Follow Dr. Diego on Instagram</h2>
+            <div class="instagram-grid">
+                <img src="images/Instagram post1.png" alt="Instagram post 1">
+                <img src="images/Instagram post2.png" alt="Instagram post 2">
+                <img src="images/Instagram post3.png" alt="Instagram post 3">
+                <img src="images/Instagram post4.png" alt="Instagram post 4">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 All rights reserved | Privacy Policy</p>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@dr.diegomontesdc/featured" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/diegomontesjsu/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61550673299730&sk=photos" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/lovemorechiro?igsh=MzRlODBiNWFlZA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@lovemorechiro" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
